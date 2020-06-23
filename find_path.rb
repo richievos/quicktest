@@ -52,4 +52,5 @@ def find_path(start_word, end_word, dictionary_of_possible_words)
     nil
 end
 
-find_path("head", "tail", %w(head heal teal tell tall tail))
+puts find_path("head", "head", %w(head heal teal tell tall tail)).inspect
+puts find_path("head", "tail", %w(head heal teal tell tall tail)).inspect
