@@ -26,7 +26,8 @@ def find_path(start_word, end_word, dictionary_of_possible_words)
         current = queue.shift()
         break if current.nil?
 
-        element, path = current
+        element = current[:element]
+        path = current[:path]
 
         next if visited.include?(element)
 
@@ -36,7 +37,7 @@ def find_path(start_word, end_word, dictionary_of_possible_words)
            return path
         end
 
-        element.each_with_index do |char, i|
+        element.chars.each_with_index do |char, i|
             ("a".."z").each do |replacement_char|
                next_word = element.dup
                next_word[i] = replacement_char unless replacement_char == char
@@ -54,3 +55,4 @@ end
 
 puts find_path("head", "head", %w(head heal teal tell tall tail)).inspect
 puts find_path("head", "tail", %w(head heal teal tell tall tail)).inspect
+puts find_path("head", "badd", %w(head heal teal tell tall tail)).inspect
