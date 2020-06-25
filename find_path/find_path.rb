@@ -30,6 +30,7 @@ def find_path(start_word, end_word, dictionary_of_possible_words)
         path = current[:path]
 
         next if visited.include?(element)
+        puts "checking #{element} -- #{queue.map { |x| x[:element] }.uniq.inspect}"
 
         visited << element
 
@@ -53,6 +54,6 @@ def find_path(start_word, end_word, dictionary_of_possible_words)
     nil
 end
 
-puts find_path("head", "head", %w(head heal teal tell tall tail)).inspect
+puts find_path("head", "head", %w(head heal read teal tell fell fall tall tail)).inspect
 puts find_path("head", "tail", %w(head heal teal tell tall tail)).inspect
 puts find_path("head", "badd", %w(head heal teal tell tall tail)).inspect
